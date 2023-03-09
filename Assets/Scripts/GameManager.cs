@@ -27,20 +27,30 @@ public class GameManager : MonoBehaviour
         DisableAllPlayers();
         foreach (var item in players)
         {
-            if (item.ballType == BallType.BlueBall)
+            if (item.ballType == ballType)
             {
-                item.enabled = true;
-                item.LightEnable();
+                if (item.enabled == false)
+                {
+                    item.enabled = true;
+                    item.LightEnable();
+                }
             }
         }
     }
     [ContextMenu("Switch Player")]
-    public void SwitchPlayer()
+    void SwitchPlayer()
     {
         if (ballType == BallType.BlueBall)
             ballType = BallType.RedBall;
         else
             ballType = BallType.BlueBall;
         PlayerSelect();
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SwitchPlayer();
+        }
     }
 }
