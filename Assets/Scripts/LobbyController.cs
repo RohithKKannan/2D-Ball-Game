@@ -1,44 +1,46 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 public class LobbyController : MonoBehaviour
 {
-    [SerializeField] GameObject MainMenu;
-    [SerializeField] GameObject Options;
-    [SerializeField] GameObject LevelSelection;
-    [SerializeField] TMP_Text musicText;
-    [SerializeField] TMP_Text soundText;
+    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject Options;
+    [SerializeField] private GameObject LevelSelection;
+    [SerializeField] private TMP_Text musicText;
+    [SerializeField] private TMP_Text soundText;
+    [SerializeField] private Animator animator;
+    [SerializeField] private Animator titleAnimator;
     float musicVol;
     float effectsVol;
     void Start()
     {
         musicVol = AudioManager.Instance.GetMusicVolume();
         effectsVol = AudioManager.Instance.GetSfxVolume();
-        Debug.Log(musicVol * 100);
-        Debug.Log(effectsVol * 100);
         musicVol *= 100;
         effectsVol *= 100;
         UpdateEffectsVolText();
         UpdateMusicVolText();
+        StartCoroutine(TitleLoopAnim());
     }
     public void StartGame()
     {
-        MainMenu.SetActive(false);
-        LevelSelection.SetActive(true);
+        animator.SetTrigger("LevelSelectOn");
         AudioManager.Instance.PlaySound(SoundType.ButtonClick);
     }
     public void OpenOptions()
     {
-        MainMenu.SetActive(false);
-        Options.SetActive(true);
+        animator.SetTrigger("SettingsOn");
         AudioManager.Instance.PlaySound(SoundType.ButtonClick);
     }
-    public void BackToMenu()
+    public void SettingsBackToMenu()
     {
+        animator.SetTrigger("SettingsOff");
         AudioManager.Instance.PlaySound(SoundType.BackButton);
-        Options.SetActive(false);
-        LevelSelection.SetActive(false);
-        MainMenu.SetActive(true);
+    }
+    public void LevelSelectBackToMenu()
+    {
+        animator.SetTrigger("LevelSelectOff");
+        AudioManager.Instance.PlaySound(SoundType.BackButton);
     }
     public void QuitGame()
     {
@@ -96,5 +98,10 @@ public class LobbyController : MonoBehaviour
             effectsVol--;
         SetSfxVolume(Mathf.Clamp(effectsVol, 0f, 1f));
         UpdateEffectsVolText();
+    }
+    IEnumerator TitleLoopAnim()
+    {
+        yield return new WaitForSeconds(2.5f);
+        titleAnimator.SetTrigger("StartLoop");
     }
 }
