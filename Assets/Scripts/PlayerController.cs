@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
         if (vertical == 1f && isGrounded)
+        {
+            AudioManager.Instance.PlaySound(SoundType.Jump);
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+        }
     }
     void FixedUpdate()
     {
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("Collectibles"))
         {
             Debug.Log("Coin has been picked up!");
+            gameManager.PickedCoinUp();
             Destroy(col.gameObject);
         }
         if (col.gameObject.layer == LayerMask.NameToLayer("Finish"))
@@ -52,13 +56,14 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Blue has finished!");
                 gameManager.PlayerFinished(ballType);
+                gameObject.SetActive(false);
             }
             else if (ballType == BallType.RedBall && col.gameObject.tag == "RedFinish")
             {
                 Debug.Log("Red has finished!");
                 gameManager.PlayerFinished(ballType);
+                gameObject.SetActive(false);
             }
-            gameObject.SetActive(false);
         }
         if (col.gameObject.layer == LayerMask.NameToLayer("Switch"))
         {

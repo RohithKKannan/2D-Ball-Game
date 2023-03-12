@@ -12,6 +12,7 @@ public class SwitchController : MonoBehaviour
     }
     public void TriggerSwitch(BallType ballType)
     {
+        AudioManager.Instance.PlaySound(SoundType.ButtonClick);
         if (!switchOn)
         {
             if (ballType == BallType.BlueBall)

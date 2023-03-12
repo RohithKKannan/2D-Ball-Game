@@ -14,10 +14,13 @@ public class GameManager : MonoBehaviour
     bool BlueFinished = false;
     bool RedFinished = false;
     BallType ballType;
+    int coins;
     void Start()
     {
         ballType = BallType.BlueBall;
         PlayerSelect();
+        coins = 0;
+        SetCoinCount();
     }
     void DisableAllPlayers()
     {
@@ -42,6 +45,16 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void PickedCoinUp()
+    {
+        AudioManager.Instance.PlaySound(SoundType.Coin);
+        coins++;
+        SetCoinCount();
+    }
+    void SetCoinCount()
+    {
+        canvasController.SetCoinCount(coins);
+    }
     public void PlayerFinished(BallType ballType)
     {
         if (ballType == BallType.BlueBall)
@@ -56,6 +69,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Level Complete!");
             FinishLevel();
+            AudioManager.Instance.PlaySound(SoundType.FinishLevel);
         }
         else
             SwitchPlayer();
@@ -80,34 +94,26 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         canvasController.EnablePause();
+        AudioManager.Instance.PauseMusic();
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
         canvasController.DisablePause();
+        AudioManager.Instance.ResumeMusic();
     }
     public void GameOver(GameOverConditions gameOverConditions)
     {
         string gameOverReason = GetReason(gameOverConditions);
         Time.timeScale = 0;
         canvasController.GameOverEnable(gameOverReason);
+        AudioManager.Instance.PlaySound(SoundType.GameOver);
     }
     public void FinishLevel()
     {
         Time.timeScale = 0;
         canvasController.FinishLevelEnable();
-    }
-    public void RestartLevel()
-    {
-        LevelManager.Instance.RestartLevel();
-    }
-    public void MainMenu()
-    {
-        LevelManager.Instance.LoadMainMenu();
-    }
-    public void NextLevel()
-    {
-        LevelManager.Instance.LoadNextLevel();
+        AudioManager.Instance.PlaySound(SoundType.FinishLevel);
     }
     string GetReason(GameOverConditions gameOverConditions)
     {
