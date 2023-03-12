@@ -18,12 +18,12 @@ public class SwitchController : MonoBehaviour
             if (ballType == BallType.BlueBall)
             {
                 lightComponent.color = Color.blue;
-                movingPlatform.SetTrigger("Move");
+                movingPlatform.SetTrigger("MoveBlue");
             }
             else if (ballType == BallType.RedBall)
             {
                 lightComponent.color = Color.red;
-                movingPlatform.SetTrigger("Move");
+                movingPlatform.SetTrigger("MoveRed");
             }
             switchOn = !switchOn;
         }
