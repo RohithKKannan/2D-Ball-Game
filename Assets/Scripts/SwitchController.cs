@@ -3,7 +3,7 @@ using UnityEngine.Rendering.Universal;
 public class SwitchController : MonoBehaviour
 {
     [SerializeField] Light2D lightComponent;
-    [SerializeField] Animator movingPlatform;
+    [SerializeField] PlatformController movingPlatform;
     bool switchOn = false;
     void Start()
     {
@@ -18,12 +18,12 @@ public class SwitchController : MonoBehaviour
             if (ballType == BallType.BlueBall)
             {
                 lightComponent.color = Color.blue;
-                movingPlatform.SetTrigger("MoveBlue");
+                movingPlatform.MovePlatform();
             }
             else if (ballType == BallType.RedBall)
             {
                 lightComponent.color = Color.red;
-                movingPlatform.SetTrigger("MoveRed");
+                movingPlatform.MovePlatform();
             }
             switchOn = !switchOn;
         }

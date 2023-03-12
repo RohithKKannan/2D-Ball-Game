@@ -11387,9 +11387,9 @@ GameObject:
   - component: {fileID: 980180153}
   - component: {fileID: 980180152}
   - component: {fileID: 980180155}
-  - component: {fileID: 980180154}
+  - component: {fileID: 980180156}
   m_Layer: 6
-  m_Name: MovingPlatform1
+  m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11603,26 +11603,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!95 &980180154
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980180150}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6ea2af764a34bf4aa677ae28e4529c9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!19719996 &980180155
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -11639,6 +11619,20 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &980180156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980180150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54e536726bd60a4b9e31ad85cbd1a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: 1
+  distance: 3
 --- !u!1001 &1016418745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18778,6 +18772,6 @@ PrefabInstance:
     - target: {fileID: 6299432033676799565, guid: 600b3c307281d6442ab9eae172827105, type: 3}
       propertyPath: movingPlatform
       value: 
-      objectReference: {fileID: 980180154}
+      objectReference: {fileID: 980180156}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 600b3c307281d6442ab9eae172827105, type: 3}
