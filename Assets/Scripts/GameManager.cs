@@ -81,9 +81,15 @@ public class GameManager : MonoBehaviour
             return;
         }
         if (BlueFinished)
+        {
             PlayerSelect(BallType.RedBall);
+            noSwitching = true;
+        }
         else
+        {
             PlayerSelect(BallType.BlueBall);
+            noSwitching = true;
+        }
     }
     [ContextMenu("Switch Player")]
     void SwitchPlayer()
