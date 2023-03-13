@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] PlayerController[] players;
     [SerializeField] CanvasController canvasController;
+    [SerializeField] GameObject BlueFinishLight;
+    [SerializeField] GameObject RedFinishLight;
     bool BlueFinished = false;
     bool RedFinished = false;
     BallType ballType;
@@ -60,10 +62,12 @@ public class GameManager : MonoBehaviour
         if (ballType == BallType.BlueBall)
         {
             BlueFinished = true;
+            BlueFinishLight.SetActive(false);
         }
         if (ballType == BallType.RedBall)
         {
             RedFinished = true;
+            RedFinishLight.SetActive(false);
         }
         if (BlueFinished && RedFinished)
         {
