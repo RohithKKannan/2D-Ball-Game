@@ -47,9 +47,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.6
-  m_Color: {r: 1, g: 0.94396687, b: 0, a: 1}
-  m_Intensity: 1.6
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.023555525, b: 0, a: 1}
+  m_Intensity: 3
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -98,8 +98,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.63
-  m_PointLightOuterRadius: 1.8
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 4
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -139,7 +139,7 @@ Transform:
   m_GameObject: {fileID: 4114858133745363620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4114858133504657458}
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ed2326fbde505a74e9b867672aa5646d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -210,10 +210,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 3
   m_LinearDrag: 0.5
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -247,20 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fbc8a0caa91db4881fe19c9cdb8471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 10
-  speed: 5
-  distance: 0.4
+  jumpHeight: 20
+  speed: 7
+  distance: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  acidLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  finishLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  collectiblesLayer:
-    serializedVersion: 2
-    m_Bits: 256
   ballType: 1
   lightComponent: {fileID: 4114858133504657459}
