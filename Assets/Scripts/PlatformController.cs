@@ -30,8 +30,6 @@ public class PlatformController : MonoBehaviour
         }
         currentPos = transform.position;
         targetPos = currentPos + directionVector * distance;
-        Debug.Log("Current Pos : " + currentPos);
-        Debug.Log("Target Pos : " + targetPos);
     }
     public void MovePlatform()
     {

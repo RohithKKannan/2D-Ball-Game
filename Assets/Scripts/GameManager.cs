@@ -13,14 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] CanvasController canvasController;
     [SerializeField] GameObject BlueFinishLight;
     [SerializeField] GameObject RedFinishLight;
+    BallType currentBall;
+    bool noSwitching = false;
     bool BlueFinished = false;
     bool RedFinished = false;
-    BallType ballType;
     int coins;
     void Start()
     {
-        ballType = BallType.BlueBall;
-        PlayerSelect();
+        PlayerSelect(BallType.BlueBall);
         coins = 0;
         SetCoinCount();
     }
@@ -32,17 +32,22 @@ public class GameManager : MonoBehaviour
             item.enabled = false;
         }
     }
-    void PlayerSelect()
+    void PlayerSelect(BallType ballType)
     {
-        DisableAllPlayers();
-        foreach (var item in players)
+        if (!noSwitching)
         {
-            if (item.ballType == ballType)
+            DisableAllPlayers();
+            foreach (var item in players)
             {
-                if (item.enabled == false)
+                if (item.ballType == ballType)
                 {
-                    item.enabled = true;
-                    item.LightEnable();
+                    if (item.enabled == false)
+                    {
+                        item.enabled = true;
+                        item.LightEnable();
+                        AudioManager.Instance.PlaySound(SoundType.PlayerSwitch);
+                        currentBall = ballType;
+                    }
                 }
             }
         }
@@ -71,21 +76,25 @@ public class GameManager : MonoBehaviour
         }
         if (BlueFinished && RedFinished)
         {
-            Debug.Log("Level Complete!");
             FinishLevel();
             AudioManager.Instance.PlaySound(SoundType.FinishLevel);
+            return;
         }
+        if (BlueFinished)
+            PlayerSelect(BallType.RedBall);
         else
-            SwitchPlayer();
+            PlayerSelect(BallType.BlueBall);
     }
     [ContextMenu("Switch Player")]
     void SwitchPlayer()
     {
-        if (ballType == BallType.BlueBall)
-            ballType = BallType.RedBall;
-        else
-            ballType = BallType.BlueBall;
-        PlayerSelect();
+        if (!noSwitching)
+        {
+            if (currentBall == BallType.BlueBall)
+                PlayerSelect(BallType.RedBall);
+            else
+                PlayerSelect(BallType.BlueBall);
+        }
     }
     void Update()
     {
@@ -115,6 +124,7 @@ public class GameManager : MonoBehaviour
     }
     public void FinishLevel()
     {
+        LevelManager.Instance.SetLevelComplete();
         Time.timeScale = 0;
         canvasController.FinishLevelEnable();
         AudioManager.Instance.PlaySound(SoundType.FinishLevel);
@@ -124,8 +134,8 @@ public class GameManager : MonoBehaviour
         string reason = "";
         switch (gameOverConditions)
         {
-            case GameOverConditions.BlueInLava: reason = "Blue ball dies in lava!"; break;
-            case GameOverConditions.RedInWater: reason = "Red ball dies in water!"; break;
+            case GameOverConditions.BlueInLava: reason = "Aqua can't swim in lava!"; break;
+            case GameOverConditions.RedInWater: reason = "Flamo can't swim in water!"; break;
             case GameOverConditions.FellIntoAcid: reason = "Do not fall into acid!"; break;
         }
         return reason;

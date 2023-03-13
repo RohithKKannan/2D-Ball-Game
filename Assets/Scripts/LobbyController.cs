@@ -14,10 +14,8 @@ public class LobbyController : MonoBehaviour
     float effectsVol;
     void Start()
     {
-        musicVol = AudioManager.Instance.GetMusicVolume();
-        effectsVol = AudioManager.Instance.GetSfxVolume();
-        musicVol *= 100;
-        effectsVol *= 100;
+        musicVol = AudioManager.Instance.GetMusicVolume() * 10;
+        effectsVol = AudioManager.Instance.GetSfxVolume() * 10;
         UpdateEffectsVolText();
         UpdateMusicVolText();
         StartCoroutine(TitleLoopAnim());
@@ -66,11 +64,9 @@ public class LobbyController : MonoBehaviour
     public void IncreaseMusic()
     {
         AudioManager.Instance.PlaySound(SoundType.ButtonClick);
-        if (musicVol < 100)
+        if (musicVol < 10)
             musicVol++;
-        Debug.Log(musicVol);
-        Debug.Log(Mathf.Clamp(musicVol, 0f, 1f));
-        SetMusicVolume(Mathf.Clamp(musicVol, 0f, 1f));
+        SetMusicVolume(musicVol / 10);
         UpdateMusicVolText();
     }
     public void DecreaseMusic()
@@ -78,17 +74,15 @@ public class LobbyController : MonoBehaviour
         AudioManager.Instance.PlaySound(SoundType.ButtonClick);
         if (musicVol > 0)
             musicVol--;
-        Debug.Log(musicVol);
-        Debug.Log(Mathf.Clamp(musicVol, 0f, 1f));
-        SetMusicVolume(Mathf.Clamp(musicVol, 0f, 1f));
+        SetMusicVolume(musicVol / 10);
         UpdateMusicVolText();
     }
     public void IncreaseEffects()
     {
         AudioManager.Instance.PlaySound(SoundType.ButtonClick);
-        if (effectsVol < 100)
+        if (effectsVol < 10)
             effectsVol++;
-        SetSfxVolume(Mathf.Clamp(effectsVol, 0f, 1f));
+        SetSfxVolume(effectsVol / 10);
         UpdateEffectsVolText();
     }
     public void DecreaseEffects()
@@ -96,12 +90,13 @@ public class LobbyController : MonoBehaviour
         AudioManager.Instance.PlaySound(SoundType.ButtonClick);
         if (effectsVol > 0)
             effectsVol--;
-        SetSfxVolume(Mathf.Clamp(effectsVol, 0f, 1f));
+        SetSfxVolume(effectsVol / 10);
         UpdateEffectsVolText();
     }
     IEnumerator TitleLoopAnim()
     {
         yield return new WaitForSeconds(2.5f);
         titleAnimator.SetTrigger("StartLoop");
+        AudioManager.Instance.PlaySound(SoundType.MenuMusic);
     }
 }

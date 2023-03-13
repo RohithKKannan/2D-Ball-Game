@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(SoundType soundType)
     {
         Sound sound = Array.Find(sounds, item => item.soundType == soundType);
-        if (soundType == SoundType.BGMusic || soundType == SoundType.GameOver || soundType == SoundType.FinishLevel)
+        if (soundType == SoundType.BGMusic || soundType == SoundType.GameOver || soundType == SoundType.FinishLevel || soundType == SoundType.MenuMusic)
         {
             music.clip = sound.audioClip;
             music.Play();
@@ -51,10 +51,12 @@ public class AudioManager : MonoBehaviour
     }
     public void PauseMusic()
     {
+        Debug.Log("Pause music called!");
         music.Pause();
     }
     public void ResumeMusic()
     {
+        Debug.Log("Resume music called!");
         music.Play();
     }
 }
@@ -66,6 +68,6 @@ public class Sound
 }
 public enum SoundType
 {
-    ButtonClick, BackButton, BGMusic, GameOver, FinishLevel, Jump, Coin
+    ButtonClick, BackButton, BGMusic, GameOver, FinishLevel, Jump, Coin, MenuMusic, Machine, PlayerSwitch
 }
 
