@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 1871068}
   - component: {fileID: 1871067}
   - component: {fileID: 1871066}
+  - component: {fileID: 1871070}
   m_Layer: 5
   m_Name: Level4
   m_TagString: Untagged
@@ -227,19 +228,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1871068}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 775470518}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1871068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +267,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871064}
   m_CullTransparentMesh: 1
+--- !u!114 &1871070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dc8bd5570bc1841b0d69a5dfe24def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 4
 --- !u!1 &41381803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -40}
+  m_AnchoredPosition: {x: -60, y: -40}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &420594650
@@ -1128,6 +1130,7 @@ GameObject:
   - component: {fileID: 440005638}
   - component: {fileID: 440005637}
   - component: {fileID: 440005636}
+  - component: {fileID: 440005640}
   m_Layer: 5
   m_Name: Level2
   m_TagString: Untagged
@@ -1219,19 +1222,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 440005638}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 775470518}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &440005638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,6 +1261,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440005634}
   m_CullTransparentMesh: 1
+--- !u!114 &440005640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440005634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dc8bd5570bc1841b0d69a5dfe24def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 2
 --- !u!1 &469249544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1287,7 @@ GameObject:
   - component: {fileID: 469249548}
   - component: {fileID: 469249547}
   - component: {fileID: 469249546}
+  - component: {fileID: 469249550}
   m_Layer: 5
   m_Name: Level5
   m_TagString: Untagged
@@ -1374,19 +1379,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 469249548}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 775470518}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &469249548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,6 +1418,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469249544}
   m_CullTransparentMesh: 1
+--- !u!114 &469249550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469249544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dc8bd5570bc1841b0d69a5dfe24def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 5
 --- !u!1 &502193823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: 10}
+  m_AnchoredPosition: {x: 110, y: 10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -2064,7 +2070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d5eae42ef8f478458264215cc978ab1, type: 2}
   m_sharedMaterial: {fileID: -8576749230410582768, guid: 1d5eae42ef8f478458264215cc978ab1, type: 2}
@@ -11295,6 +11301,7 @@ GameObject:
   - component: {fileID: 1041546891}
   - component: {fileID: 1041546890}
   - component: {fileID: 1041546889}
+  - component: {fileID: 1041546893}
   m_Layer: 5
   m_Name: Level3
   m_TagString: Untagged
@@ -11386,19 +11393,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1041546891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 775470518}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1041546891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11437,6 +11432,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041546887}
   m_CullTransparentMesh: 1
+--- !u!114 &1041546893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041546887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dc8bd5570bc1841b0d69a5dfe24def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 3
 --- !u!1 &1110443080
 GameObject:
   m_ObjectHideFlags: 0
@@ -12222,7 +12230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 0}
+  m_AnchoredPosition: {x: -60, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448896246
@@ -12335,6 +12343,7 @@ GameObject:
   - component: {fileID: 1467048356}
   - component: {fileID: 1467048355}
   - component: {fileID: 1467048358}
+  - component: {fileID: 1467048359}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -12406,19 +12415,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1467048356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 775470518}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1467048356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12477,6 +12474,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1467048359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467048352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dc8bd5570bc1841b0d69a5dfe24def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 1
 --- !u!1 &1546102930
 GameObject:
   m_ObjectHideFlags: 0
@@ -12535,7 +12545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d5eae42ef8f478458264215cc978ab1, type: 2}
   m_sharedMaterial: {fileID: -8576749230410582768, guid: 1d5eae42ef8f478458264215cc978ab1, type: 2}
@@ -14327,7 +14337,13 @@ MonoBehaviour:
   - soundType: 5
     audioClip: {fileID: 8300000, guid: e470d03e48e37a141a545f7a93dd97d1, type: 3}
   - soundType: 4
+    audioClip: {fileID: 8300000, guid: 30cc455232b06214587add396098fbe3, type: 3}
+  - soundType: 7
     audioClip: {fileID: 8300000, guid: b9cdb9b7b53e9a148984f866b967e1f8, type: 3}
+  - soundType: 8
+    audioClip: {fileID: 8300000, guid: ccb2c7be1f6bf8848802f6a1e95d711c, type: 3}
+  - soundType: 9
+    audioClip: {fileID: 8300000, guid: c8f0afe461dffed458c58f68bd9e6695, type: 3}
 --- !u!4 &2112176121
 Transform:
   m_ObjectHideFlags: 0
@@ -14516,6 +14532,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: -30}
+  m_AnchoredPosition: {x: 110, y: -30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

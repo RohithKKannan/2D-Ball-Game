@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Collectibles"))
         {
-            Debug.Log("Coin has been picked up!");
             gameManager.PickedCoinUp();
             Destroy(col.gameObject);
         }
@@ -54,13 +53,11 @@ public class PlayerController : MonoBehaviour
         {
             if (ballType == BallType.BlueBall && col.gameObject.tag == "BlueFinish")
             {
-                Debug.Log("Blue has finished!");
                 gameManager.PlayerFinished(ballType);
                 gameObject.SetActive(false);
             }
             else if (ballType == BallType.RedBall && col.gameObject.tag == "RedFinish")
             {
-                Debug.Log("Red has finished!");
                 gameManager.PlayerFinished(ballType);
                 gameObject.SetActive(false);
             }
@@ -74,7 +71,6 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Acid"))
         {
-            Debug.Log("Game Over!");
             gameManager.GameOver(GameOverConditions.FellIntoAcid);
         }
         if (col.gameObject.layer == LayerMask.NameToLayer("Lava"))
@@ -85,7 +81,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Swimming in Lava!");
                 gameManager.GameOver(GameOverConditions.BlueInLava);
             }
         }
@@ -105,11 +100,14 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Lava"))
         {
-            if (ballType != BallType.RedBall)
+            if (ballType == BallType.RedBall)
             {
-                Debug.Log("Swimming in Lava!");
+                speed = speed * 2;
             }
-            else
+        }
+        if (col.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            if (ballType == BallType.BlueBall)
             {
                 speed = speed * 2;
             }
