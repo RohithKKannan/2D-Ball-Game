@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour
     int coins;
     void Start()
     {
-        PlayerSelect(BallType.BlueBall);
+        if (LevelManager.Instance.playerControl == PlayerControl.singlePlayer)
+        {
+            PlayerSelect(BallType.BlueBall);
+        }
         coins = 0;
         SetCoinCount();
     }
@@ -80,15 +83,18 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlaySound(SoundType.FinishLevel);
             return;
         }
-        if (BlueFinished)
+        if (LevelManager.Instance.playerControl == PlayerControl.singlePlayer)
         {
-            PlayerSelect(BallType.RedBall);
-            noSwitching = true;
-        }
-        else
-        {
-            PlayerSelect(BallType.BlueBall);
-            noSwitching = true;
+            if (BlueFinished)
+            {
+                PlayerSelect(BallType.RedBall);
+                noSwitching = true;
+            }
+            else
+            {
+                PlayerSelect(BallType.BlueBall);
+                noSwitching = true;
+            }
         }
     }
     [ContextMenu("Switch Player")]
@@ -104,9 +110,12 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (LevelManager.Instance.playerControl == PlayerControl.singlePlayer)
         {
-            SwitchPlayer();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SwitchPlayer();
+            }
         }
     }
     public void PauseGame()
