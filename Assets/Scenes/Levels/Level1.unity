@@ -12752,6 +12752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenChars: 0.1
   timeAfterText: 3
+  firstLevel: 1
 --- !u!1 &1757397730
 GameObject:
   m_ObjectHideFlags: 0

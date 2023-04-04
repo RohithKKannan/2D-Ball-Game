@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using TMPro;
 public class LobbyController : MonoBehaviour
 {
@@ -10,10 +11,23 @@ public class LobbyController : MonoBehaviour
     [SerializeField] private TMP_Text soundText;
     [SerializeField] private Animator animator;
     [SerializeField] private Animator titleAnimator;
+    [SerializeField] private Image onePlayer;
+    [SerializeField] private Image twoPlayer;
+    private
     float musicVol;
     float effectsVol;
     void Start()
     {
+        if (LevelManager.Instance.playerControl == PlayerControl.singlePlayer)
+        {
+            onePlayer.enabled = true;
+            twoPlayer.enabled = false;
+        }
+        else
+        {
+            onePlayer.enabled = false;
+            twoPlayer.enabled = true;
+        }
         musicVol = AudioManager.Instance.GetMusicVolume() * 10;
         effectsVol = AudioManager.Instance.GetSfxVolume() * 10;
         UpdateEffectsVolText();
@@ -98,5 +112,23 @@ public class LobbyController : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         titleAnimator.SetTrigger("StartLoop");
         AudioManager.Instance.PlaySound(SoundType.MenuMusic);
+    }
+    public void SelectOnePlayer()
+    {
+        if (LevelManager.Instance.playerControl == PlayerControl.twoPlayer)
+        {
+            LevelManager.Instance.SwitchPlayerControl();
+            onePlayer.enabled = true;
+            twoPlayer.enabled = false;
+        }
+    }
+    public void SelectTwoPlayer()
+    {
+        if (LevelManager.Instance.playerControl == PlayerControl.singlePlayer)
+        {
+            LevelManager.Instance.SwitchPlayerControl();
+            onePlayer.enabled = false;
+            twoPlayer.enabled = true;
+        }
     }
 }

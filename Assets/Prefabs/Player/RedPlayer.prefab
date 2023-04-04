@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fbc8a0caa91db4881fe19c9cdb8471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 20
+  jumpHeight: 22
   speed: 7
   distance: 1
   groundLayer:
@@ -255,3 +255,4 @@ MonoBehaviour:
     m_Bits: 64
   ballType: 1
   lightComponent: {fileID: 4114858133504657459}
+  gameManager: {fileID: 0}

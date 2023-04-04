@@ -4,8 +4,13 @@ public enum LevelStatus
 {
     locked, unlocked, completed
 }
+public enum PlayerControl
+{
+    singlePlayer, twoPlayer
+}
 public class LevelManager : MonoBehaviour
 {
+    public PlayerControl playerControl;
     private static LevelManager instance = null;
     public static LevelManager Instance { get { return instance; } }
     private void Awake()
@@ -23,6 +28,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
+        playerControl = PlayerControl.singlePlayer;
         if (GetLevelStatus(0) == LevelStatus.locked)
             SetLevelStatus(0, LevelStatus.unlocked);
         if (GetLevelStatus(1) == LevelStatus.locked)
@@ -89,5 +95,12 @@ public class LevelManager : MonoBehaviour
     {
         Application.Quit();
         AudioManager.Instance.PlaySound(SoundType.ButtonClick);
+    }
+    public void SwitchPlayerControl()
+    {
+        if (playerControl == PlayerControl.singlePlayer)
+            playerControl = PlayerControl.twoPlayer;
+        else
+            playerControl = PlayerControl.singlePlayer;
     }
 }

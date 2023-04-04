@@ -295,6 +295,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 588253420290936787, guid: a0bc16fb8b305384c8d43311d7c99aae, type: 3}
+      propertyPath: jumpHeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 588253420290936787, guid: a0bc16fb8b305384c8d43311d7c99aae, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 666864071}
@@ -15780,6 +15784,10 @@ PrefabInstance:
     - target: {fileID: 3528554601013216936, guid: bfed4afcaeca0f141a2d5b74e2ea0103, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987272121406211047, guid: bfed4afcaeca0f141a2d5b74e2ea0103, type: 3}
+      propertyPath: jumpHeight
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4987272121406211047, guid: bfed4afcaeca0f141a2d5b74e2ea0103, type: 3}
       propertyPath: gameManager
