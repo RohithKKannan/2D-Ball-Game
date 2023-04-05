@@ -5,8 +5,16 @@ public class CanvasController : MonoBehaviour
     [SerializeField] GameObject GameOverPanel;
     [SerializeField] GameObject PauseGamePanel;
     [SerializeField] GameObject FinishLevelPanel;
+    [SerializeField] GameObject VirtualControls;
     [SerializeField] TMP_Text gameOverReason;
     [SerializeField] TMP_Text coinCount;
+    void Start()
+    {
+        if (LevelManager.Instance.platform == Platform.mobile)
+            VirtualControls.SetActive(true);
+        else
+            VirtualControls.SetActive(false);
+    }
     public void SetCoinCount(int count)
     {
         coinCount.text = count.ToString();
