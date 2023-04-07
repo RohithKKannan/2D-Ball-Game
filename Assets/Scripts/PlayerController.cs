@@ -20,42 +20,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, distance, groundLayer);
-        if (LevelManager.Instance.playerControl == PlayerControl.twoPlayer)
-        {
-            if (ballType == BallType.BlueBall)
-            {
-                if (Input.GetKey(KeyCode.A))
-                    horizontal = -1f;
-                else if (Input.GetKey(KeyCode.D))
-                    horizontal = 1f;
-                else
-                    horizontal = 0f;
 
-                if (Input.GetKeyDown(KeyCode.W))
-                    vertical = 1f;
-                else
-                    vertical = 0f;
-            }
-            else if (ballType == BallType.RedBall)
-            {
-                if (Input.GetKey(KeyCode.LeftArrow))
-                    horizontal = -1f;
-                else if (Input.GetKey(KeyCode.RightArrow))
-                    horizontal = 1f;
-                else
-                    horizontal = 0f;
+        //horizontal / vertical
 
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                    vertical = 1f;
-                else
-                    vertical = 0f;
-            }
-        }
-        else
-        {
-            horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
-        }
         if (vertical == 1f && isGrounded)
         {
             AudioManager.Instance.PlaySound(SoundType.Jump);
