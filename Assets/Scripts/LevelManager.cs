@@ -8,8 +8,13 @@ public enum PlayerControl
 {
     singlePlayer, twoPlayer
 }
+public enum Platform
+{
+    desktop, mobile
+}
 public class LevelManager : MonoBehaviour
 {
+    public Platform platform;
     public PlayerControl playerControl;
     private static LevelManager instance = null;
     public static LevelManager Instance { get { return instance; } }
@@ -28,6 +33,10 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
+        if (Application.platform == RuntimePlatform.Android)
+            platform = Platform.mobile;
+        else
+            platform = Platform.desktop;
         playerControl = PlayerControl.singlePlayer;
         if (GetLevelStatus(0) == LevelStatus.locked)
             SetLevelStatus(0, LevelStatus.unlocked);

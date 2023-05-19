@@ -14,10 +14,15 @@ public class TutorialText : MonoBehaviour
         tutorialText = GetComponent<TMP_Text>();
         if (firstLevel)
         {
-            if (LevelManager.Instance.playerControl == PlayerControl.singlePlayer)
-                tutorialText.text = "WASD to move\nSPACE to switch between Aqua and Flamo";
+            if (LevelManager.Instance.platform == Platform.desktop)
+            {
+                if (LevelManager.Instance.playerControl == PlayerControl.singlePlayer)
+                    tutorialText.text = "WASD to move\nSPACE to switch between Aqua and Flamo";
+                else
+                    tutorialText.text = "WASD to move Aqua\nArrow keys to move Flamo";
+            }
             else
-                tutorialText.text = "WASD to move Aqua\nArrow keys to move Flamo";
+                tutorialText.text = "Left, Right and Up arrows to move\nX to switch between Aqua and Flamo";
         }
         maxCount = tutorialText.text.Length;
         tutorialText.maxVisibleCharacters = 0;
